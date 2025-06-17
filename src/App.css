@@ -1,0 +1,351 @@
+/* Prize Wheel App Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.app-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .app {
+    padding: 2rem;
+    max-width: 1400px;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+}
+
+/* Friends Selection Panel */
+.friends-panel {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.friends-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.friends-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .friends-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .friends-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.friend-item:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.friend-item.selected {
+  background: #f1f8e9;
+  border-color: #4CAF50;
+}
+
+.friend-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4CAF50;
+}
+
+.friend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.friend-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  flex: 1;
+}
+
+.select-all-controls {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: #e9ecef;
+}
+
+/* Wheel Section */
+.wheel-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.wheel-container {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.wheel-svg {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.wheel-idle {
+  animation: idle-spin 20s linear infinite;
+}
+
+.wheel-spinning {
+  animation: spin-to-winner 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  cursor: wait;
+}
+
+.wheel-stopped {
+  animation: none;
+  cursor: default;
+}
+
+@keyframes idle-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-to-winner {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: rotate(var(--final-rotation, 1800deg));
+    animation-timing-function: ease-out;
+  }
+}
+
+.spin-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #333;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.spin-button:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.spin-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.spin-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.no-friends-message {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+}
+
+.result-display {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+  border-radius: 16px;
+  color: #333;
+  animation: result-appear 0.5s ease-out;
+}
+
+@keyframes result-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-winner {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.result-song {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.result-song-details {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 767px) {
+  .app {
+    padding: 0.5rem;
+  }
+  
+  .app-header {
+    margin-bottom: 1rem;
+  }
+  
+  .friends-panel,
+  .wheel-section {
+    padding: 1rem;
+  }
+  
+  .wheel-section {
+    min-height: 400px;
+  }
+  
+  .spin-button {
+    width: 70px;
+    height: 70px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Audio controls (hidden but accessible) */
+.audio-player {
+  display: none;
+}
