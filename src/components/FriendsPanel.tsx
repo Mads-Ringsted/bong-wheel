@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Friend } from '../types';
 
 interface FriendsPanelProps {
@@ -13,46 +14,67 @@ const FriendsPanel: React.FC<FriendsPanelProps> = ({
   onSelectAll,
   onSelectNone,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const selectedCount = friends.filter(friend => friend.isSelected).length;
 
   return (
-    <div className="friends-panel">
-      <h2>
-        🎵 Friends ({selectedCount}/{friends.length} selected)
-      </h2>
-      
-      <div className="select-all-controls">
-        <button className="control-btn" onClick={onSelectAll}>
-          Select All
-        </button>
-        <button className="control-btn" onClick={onSelectNone}>
-          Select None
-        </button>
-      </div>
-      
-      <div className="friends-list">
-        {friends.map((friend) => (
-          <div
-            key={friend.id}
-            className={`friend-item ${friend.isSelected ? 'selected' : ''}`}
-            onClick={() => onFriendToggle(friend.id)}
-          >
-            <input
-              type="checkbox"
-              className="friend-checkbox"
-              checked={friend.isSelected}
-              onChange={() => onFriendToggle(friend.id)}
-              onClick={(e) => e.stopPropagation()}
-            />
-            <div
-              className="friend-color"
-              style={{ backgroundColor: friend.color }}
-            />
-            <span className="friend-name">{friend.name}</span>
+    <>
+      {/* Dropdown Toggle Button */}
+      <button 
+        className="friends-toggle-btn"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        👥 Vælg venner ({selectedCount}/{friends.length})
+      </button>
+
+      {/* Dropdown Overlay */}
+      {isOpen && (
+        <>
+          <div className="friends-overlay" onClick={() => setIsOpen(false)} />
+          <div className="friends-dropdown">
+            <div className="friends-dropdown-header">
+              <h3>Vælg dine venner</h3>
+              <button 
+                className="close-btn"
+                onClick={() => setIsOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="select-all-controls">
+              <button className="control-btn" onClick={onSelectAll}>
+                Vælg alle
+              </button>
+              <button className="control-btn" onClick={onSelectNone}>
+                Fravælg alle
+              </button>
+            </div>
+
+            <div className="friends-list">
+              {friends.map((friend) => (
+                <label
+                  key={friend.id}
+                  className={`friend-item ${friend.isSelected ? 'selected' : ''}`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={friend.isSelected}
+                    onChange={() => onFriendToggle(friend.id)}
+                    className="friend-checkbox"
+                  />
+                  <div
+                    className="friend-color"
+                    style={{ backgroundColor: friend.color }}
+                  />
+                  <span className="friend-name">{friend.name}</span>
+                </label>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 

@@ -22,8 +22,8 @@ const SpinWheel: React.FC<SpinWheelProps> = ({
   if (selectedFriends.length === 0) {
     return (
       <div className="no-friends-message">
-        <h3>🎯 Select some friends to spin the wheel!</h3>
-        <p>Check the boxes next to your friends' names to include them in the wheel.</p>
+        <h3>🎯 Vælg nogle venner for at spinde hjulet!</h3>
+        <p>Tryk på knappen ovenfor for at vælge venner.</p>
       </div>
     );
   }
@@ -167,7 +167,7 @@ const SpinWheel: React.FC<SpinWheelProps> = ({
             zIndex: 5,
           }}
         >
-          Click to Spin!
+          Klik for at spinde!
         </div>
       )}
       
@@ -201,7 +201,7 @@ const SpinWheel: React.FC<SpinWheelProps> = ({
             e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)';
           }}
         >
-          Spin Again!
+          Spin igen!
         </button>
       )}
       

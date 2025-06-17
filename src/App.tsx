@@ -180,18 +180,11 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1 className="app-title">🎡 Prize Wheel</h1>
-        <p className="app-subtitle">Spin to pick a friend and play their song!</p>
+        <h1 className="app-title">🍺 Hvem skal have en bong? 🍺</h1>
+        <p className="app-subtitle">Spin hjulet for at vælge en ven!</p>
       </header>
 
       <main className="main-content">
-        <FriendsPanel
-          friends={friends}
-          onFriendToggle={handleFriendToggle}
-          onSelectAll={handleSelectAll}
-          onSelectNone={handleSelectNone}
-        />
-
         <div className="wheel-section">
           <SpinWheel
             friends={friends}
@@ -200,6 +193,13 @@ function App() {
             finalRotation={finalRotation}
             onSpin={handleSpin}
             onSpinAgain={handleSpinAgain}
+          />
+          
+          <FriendsPanel
+            friends={friends}
+            onFriendToggle={handleFriendToggle}
+            onSelectAll={handleSelectAll}
+            onSelectNone={handleSelectNone}
           />
           
           <ResultDisplay winner={winner} isPlaying={isPlaying} />
