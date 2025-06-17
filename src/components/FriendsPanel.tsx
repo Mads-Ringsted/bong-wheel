@@ -20,12 +20,12 @@ const FriendsPanel: React.FC<FriendsPanelProps> = ({
   return (
     <>
       {/* Dropdown Toggle Button */}
-      <button 
-        className="friends-toggle-btn"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        👥 Vælg venner ({selectedCount}/{friends.length})
-      </button>
+    <button 
+      className="friends-toggle-btn"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+       🍺 Vælg bongers ({selectedCount}/{friends.length})
+    </button>
 
       {/* Dropdown Overlay */}
       {isOpen && (
@@ -33,7 +33,7 @@ const FriendsPanel: React.FC<FriendsPanelProps> = ({
           <div className="friends-overlay" onClick={() => setIsOpen(false)} />
           <div className="friends-dropdown">
             <div className="friends-dropdown-header">
-              <h3>Vælg dine venner</h3>
+              <h3>Vælg bongers</h3>
               <button 
                 className="close-btn"
                 onClick={() => setIsOpen(false)}

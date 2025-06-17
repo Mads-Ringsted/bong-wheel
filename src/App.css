@@ -260,7 +260,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
   box-shadow: 0 2px 8px rgba(238, 114, 3, 0.3);
   flex-shrink: 0;
 }
