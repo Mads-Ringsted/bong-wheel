@@ -17,7 +17,9 @@
   
   /* Custom properties for consistent theming */
   --primary-color: #FFC107;
-  --accent-color: #4CAF50;
+  --accent-color: #ee7203;
+  --accent-light: #ff8c42;
+  --accent-dark: #d65a00;
   --text-color: #333;
   --bg-color: #ffffff;
   --light-bg: #f8f9fa;

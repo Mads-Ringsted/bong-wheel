@@ -71,6 +71,11 @@ const FriendsPanel: React.FC<FriendsPanelProps> = ({
                 </label>
               ))}
             </div>
+            <div className="gem-button-container">
+                <button className='gem-button' onClick={() => setIsOpen(false)}>
+                    Gem
+                </button>
+            </div>
           </div>
         </>
       )}

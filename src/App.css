@@ -252,7 +252,7 @@ body {
 .friends-toggle-btn {
   width: 100%;
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: linear-gradient(135deg, #ee7203 0%, #d65a00 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -261,13 +261,14 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   margin-bottom: 0.5rem;
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 2px 8px rgba(238, 114, 3, 0.3);
   flex-shrink: 0;
 }
 
 .friends-toggle-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 4px 12px rgba(238, 114, 3, 0.4);
+  background: linear-gradient(135deg, #ff8c42 0%, #ee7203 100%);
 }
 
 .friends-overlay {
@@ -381,15 +382,15 @@ body {
 }
 
 .friend-item.selected {
-  background: #f1f8e9;
-  border-color: #4CAF50;
+  background: #fff3e6;
+  border-color: #ee7203;
 }
 
 .friend-checkbox {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #4CAF50;
+  accent-color: #ee7203;
 }
 
 .friend-color {
@@ -421,4 +422,37 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* Gem button container styling */
+.gem-button-container {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #f0f0f0;
+  background: #f8f9fa;
+  border-radius: 0 0 16px 16px;
+}
+
+.gem-button {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, #ee7203 0%, #d65a00 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(238, 114, 3, 0.3);
+}
+
+.gem-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(238, 114, 3, 0.4);
+  background: linear-gradient(135deg, #ff8c42 0%, #ee7203 100%);
+}
+
+.gem-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(238, 114, 3, 0.3);
 }
