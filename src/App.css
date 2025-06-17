@@ -456,3 +456,31 @@ body {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(238, 114, 3, 0.3);
 }
+
+/* Spotify button styling */
+.spotify-btn {
+  background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-btn:hover {
+  background: linear-gradient(135deg, #1ed760 0%, #1DB954 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+}
+
+.spotify-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(29, 185, 84, 0.3);
+}
