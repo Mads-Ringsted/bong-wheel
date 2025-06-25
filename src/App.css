@@ -12,14 +12,16 @@ body {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   color: #333;
   line-height: 1.6;
-  overflow: hidden; /* Prevent any scrolling */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #root {
   height: 100vh; /* Exact viewport height */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .app {
@@ -30,7 +32,8 @@ body {
   margin: 0 auto;
   padding: 0.5rem;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .app-header {

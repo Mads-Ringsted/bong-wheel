@@ -42,10 +42,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ winner, isPlaying }) => {
   return (
     <div className="result-display">
       <div className="result-winner">
-        🎉 {winner.name} vinder!
-      </div>
-      <div className="result-song">
-        {isPlaying ? '🎵 Åbner Spotify...' : '🎵 Tryk for at åbne i Spotify'}
+        🎉 {winner.name} skal have en bong!
       </div>
       <div className="result-song-details">
         <strong>{winner.songTitle}</strong> af {winner.artist}
